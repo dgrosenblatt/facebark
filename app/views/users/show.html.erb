@@ -1,0 +1,53 @@
+<div class="banner"><%= @user.dog_name %>'s profile | <%= @user.college.name %></div>
+
+<div class="picture">
+  <div class="banner">
+    <p>
+      Picture
+    </p>
+  </div>
+  <%= image_tag @user.image_url, size: "240x320", class: "profile-picture" %>
+</div>
+
+<div class="sniff">
+  <a href="#">Sniff <%= @user.dog_name %>!</a>
+</div>
+
+<div class="information">
+  <div class="banner">
+    <p>
+      Information
+    </p>
+  </div>
+    <p>
+      Name: <%= @user.dog_name %>
+    </p>
+    <p>
+      Breed: <%= @user.breed %>
+    </p>
+    <p>
+      Interests: <%= @user.interests %>
+    </p>
+</div>
+
+<div class="wall">
+  <div class="banner">
+     <p>
+       <%= @user.dog_name %>'s Wall
+     </p>
+   </div>
+   <%= @user.wall %>
+   <p>
+     <%= link_to "Write on the wall!",edit_user_path(@user) %> |
+     <%= link_to "(See Wall History)", user_histories_path(@user) %>
+   </p>
+</div>
+
+<div class="friends">
+  <div class="banner">
+    <p>
+      Friends
+    </p>
+  </div>
+
+</div>

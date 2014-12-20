@@ -1,0 +1,12 @@
+<div class="banner">
+  Write on <%= @user.dog_name %>'s Wall:
+</div>
+
+<%= form_for @user do |f| %>
+
+  <%= f.label :wall, "Edit Wall" %>
+  <br>
+  <%= f.text_area :wall, size: "80x30" %>
+  <br>
+  <%= f.submit "Save Wall" %>
+<% end %>

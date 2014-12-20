@@ -1,0 +1,15 @@
+<div>
+  <div class="banner">
+    <%= @user.dog_name %>'s Wall History
+  </div>
+  <% @histories.each do |history| %>
+    <div>
+      <div class="banner">
+        <%= history.created_at %>
+      </div>
+      <p>
+        <%= history.body %>
+      </p>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<div class="banner">
+  Write on <%= @user.dog_name %>'s Wall
+</div>
+
+<%= form_for [@user, History.new], url: {action: "create"} do |f| %>
+
+  <%= f.text_area :body, size: "80x20", value: @history.body %>
+
+  <br>
+
+  <%= f.submit "Update Wall" %>
+
+<% end %>

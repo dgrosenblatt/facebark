@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @history = @user.histories.order(created_at: :desc).first
   end
 
   def edit

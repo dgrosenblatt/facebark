@@ -36,9 +36,9 @@
        <%= @user.dog_name %>'s Wall
      </p>
    </div>
-   <%= @user.wall %>
+   <%= @history.body %>
    <p>
-     <%= link_to "Write on the wall!",edit_user_path(@user) %> |
+     <%= link_to "Write on the wall!", new_user_history_path(@user) %> |
      <%= link_to "(See Wall History)", user_histories_path(@user) %>
    </p>
 </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221161125) do
+ActiveRecord::Schema.define(version: 20141222165317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20141221161125) do
     t.integer  "college_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image_url"
+    t.string   "image_url",        default: "http://i.imgur.com/y49qSAj.jpg"
   end
 
 end

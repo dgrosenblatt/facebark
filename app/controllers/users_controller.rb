@@ -15,9 +15,13 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    History.create(user_id: @user.id, body: params[:user][:wall])
-    @user.update_attributes(wall: params[:user][:wall])
+    @user.update_attributes(user_params)
     redirect_to @user
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:image_url, :dog_name, :breed, :interests, :college_id)
   end
 
 end

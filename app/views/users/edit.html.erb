@@ -1,3 +1,29 @@
 <div class="banner">
   Edit Profile
 </div>
+<div class="edit-box">
+
+  <%= form_for @user do |f| %>
+
+    <%= f.label :dog_name, "Name" %>
+    <%= f.text_field :dog_name %>
+    <br>
+    <%= f.label :image_url %>
+    <p>Upload your photo to imgur.com and use the Large Thumbnail link
+    </p>
+    <%= f.text_field :image_url %>
+    <br>
+    <%= f.label :college_id, "College" %>
+    <%= f.collection_select(:college_id, College.all, :id, :name) %>
+    <br>
+    <%= f.label :breed %>
+    <%= f.text_field :breed %>
+    <br>
+    <%= f.label :interests %>
+    <%= f.text_field :interests %>
+    <br>
+    <%= f.submit "Save Profile" %>
+
+  <% end %>
+
+</div>

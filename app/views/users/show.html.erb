@@ -1,4 +1,4 @@
-<div class="banner"><%= @user.dog_name %>'s profile | <%= @user.college.name %></div>
+<div class="banner"><%= @user.dog_name || "New User" %>'s profile | <%= @user.college.try(:name) %></div>
 
 <div class="picture">
   <div class="banner">
@@ -36,7 +36,7 @@
        <%= @user.dog_name %>'s Wall
      </p>
    </div>
-   <%= @history.body %>
+   <%= @history.try(:body) %>
    <p>
      <%= link_to "Write on the wall!", new_user_history_path(@user) %> |
      <%= link_to "(See Wall History)", user_histories_path(@user) %>

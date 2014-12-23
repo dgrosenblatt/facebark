@@ -1,0 +1,10 @@
+<div id="name">
+  <div class="banner">
+    <p>
+      All Doggies
+    </p>
+  </div>
+  <% @users.each do |user| %>
+    <p><%= image_tag user.image_url, size: "120x160" %> | <%= link_to user.dog_name, user %></p>
+  <% end %>
+</div>

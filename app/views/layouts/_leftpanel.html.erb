@@ -1,4 +1,6 @@
+<!-- Only works for signed in user -->
 <aside id="left-panel">
   <p><%= link_to "My Profile", @user %> <%= link_to "[ edit ]", edit_user_path(@user) %></p>
   <p><a href="#">My Friends</a>
+  <p><%= link_to "Friend Requests (#{@request_count})", user_requests_path(@user) %></p>
 </aside>

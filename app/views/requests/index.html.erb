@@ -1,0 +1,22 @@
+<div class="friends">
+  <div class="banner">
+    <p>
+      Friend Requests
+    </p>
+  </div>
+
+  <% @requests.each do |request| %>
+    <p>
+      <%= request.requester.dog_name %> |
+      <%= form_for [@user, @friendship] do |f| %>
+        <%= f.hidden_field :friend_id, value: request.requester.id %>
+        <%= f.submit "Accept" %>
+      <% end %>
+      <%= link_to "No Thanks", "#" %>
+    </p>
+    <p>
+      <%= image_tag request.requester.image_url %>
+    </p>
+  <% end %>
+
+</div>

@@ -1,6 +1,17 @@
 <!-- Only works for signed in user -->
+<% if current_user  %>
 <aside id="left-panel">
-  <p><%= link_to "My Profile", @user %> <%= link_to "[ edit ]", edit_user_path(@user) %></p>
+  <p><%= link_to "My Profile", current_user %> <%= link_to "[ edit ]", edit_user_path(current_user) %></p>
   <p><a href="#">My Friends</a>
-  <p><%= link_to "Friend Requests (#{@request_count})", user_requests_path(@user) %></p>
+  <p><%= link_to "Friend Requests (#{@request_count})", user_requests_path(current_user) %></p>
 </aside>
+<% end %>
+
+<div id="user-widget">
+  <% if current_user %>
+  Welcome <strong><%= current_user.name %></strong>!
+  <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+  <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>

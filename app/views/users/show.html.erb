@@ -49,5 +49,18 @@
       Friends
     </p>
   </div>
-
+  <% if @user.all_friends.any? %>
+    <% @user.all_friends.each do |friend| %>
+      <p>
+        <%= image_tag friend.image_url, size: "100x100" %>
+      </p>
+      <p>
+        <%= friend.dog_name %>
+      </p>
+    <% end %>
+  <% else %>
+    <p>
+      No friends yet!
+    </p>
+  <% end %>
 </div>

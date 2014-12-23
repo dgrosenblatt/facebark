@@ -4,7 +4,7 @@
 
 <%= form_for [@user, History.new], url: {action: "create"} do |f| %>
 
-  <%= f.text_area :body, size: "80x20", value: @history.body %>
+  <%= f.text_area :body, size: "80x20", value: @history.try(:body) %>
 
   <br>
 

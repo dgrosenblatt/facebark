@@ -2,6 +2,17 @@ body {
   margin-top: 0;
   width: 900px;
   font-family: "Lucida Grande";
+  border: 1px solid #3b5998;
+  position: relative;
+}
+
+.group:before, .group:after {
+  content: "";
+  display: table;
+}
+
+.group:after {
+    clear: both;
 }
 
 a {
@@ -14,28 +25,44 @@ p {
 }
 
 header {
-  background-color: #3b5998;
+  border-bottom: 1px solid #3b5998;
+  background: rgba(246,246,246,1);
+  background: -moz-linear-gradient(left, rgba(246,246,246,1) 0%, rgba(237,237,237,1) 0%, rgba(180,189,210,1) 10%, rgba(59,89,152,1) 31%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(246,246,246,1)), color-stop(0%, rgba(237,237,237,1)), color-stop(10%, rgba(180,189,210,1)), color-stop(31%, rgba(59,89,152,1)));
+  background: -webkit-linear-gradient(left, rgba(246,246,246,1) 0%, rgba(237,237,237,1) 0%, rgba(180,189,210,1) 10%, rgba(59,89,152,1) 31%);
+  background: -o-linear-gradient(left, rgba(246,246,246,1) 0%, rgba(237,237,237,1) 0%, rgba(180,189,210,1) 10%, rgba(59,89,152,1) 31%);
+  background: -ms-linear-gradient(left, rgba(246,246,246,1) 0%, rgba(237,237,237,1) 0%, rgba(180,189,210,1) 10%, rgba(59,89,152,1) 31%);
+  background: linear-gradient(to right, rgba(246,246,246,1) 0%, rgba(237,237,237,1) 0%, rgba(180,189,210,1) 10%, rgba(59,89,152,1) 31%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#3b5998', GradientType=1 );
   height: 75px;
   h1 {
-    margin-top: 0;
+    margin: 0 100px 0 0;
+    padding-top: 15px;
     color: #EEE;
+    text-align: right;
+    font-size: 40px;
   }
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
   height: 15px;
   width: 100%;
   background-color: #3b5998;
   color: #FFF;
   p {
     text-align: right;
+    margin: 0 5px;
   }
 }
 
 #left-panel {
+  float: left;
   border: 1px dotted #3b5998;
   margin-top: 1px;
-  width: 100px;
+  margin-left: 1px;
+  width: 110px;
   height: 150px;
   display: inline-block;
   a {
@@ -48,13 +75,11 @@ footer {
 }
 
 .body-container {
+  float: left;
   margin-top: 1px;
   margin-bottom: 25px;
-  position: absolute;
-  top: 75px;
-  left: 111px;
-  width: 795px;
-  min-height: 300px;
+  margin-left: 1px;
+  width: 783px;
   border: 1px solid #3b5998;
 }
 
@@ -78,6 +103,7 @@ footer {
 .friends,
 .sniff,
 .connection {
+  float: left;
   border: 1px solid #3b5998;
   width: 45%;
   margin-left: 15px;

@@ -1,9 +1,14 @@
 class RequestsController < ApplicationController
+  before_action :authenticate, only: [:index, :create]
 
   def index
     @user = User.find(params[:user_id])
-    @requests = @user.received_requests.where(status: "sent")
-    @friendship = Friendship.new
+    if current_user == @user
+      @requests = @user.received_requests.where(status: "sent")
+      @friendship = Friendship.new
+    else
+      redirect_to current_user, notice: "Only you can prevent forest fires!"
+    end
   end
 
   def create

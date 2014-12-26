@@ -1,10 +1,9 @@
-<!-- Only works for signed in user -->
-
 <aside id="left-panel">
   <% if current_user  %>
     <p><%= link_to "My Profile", current_user %> <%= link_to "[ edit ]", edit_user_path(current_user) %></p>
     <p><a href="#">My Friends</a>
-    <p><%= link_to "Friend Requests (#{@request_count})", user_requests_path(current_user) %></p>
+    <p><%= link_to "Friend Requests (#{current_user.received_requests.where(status: "sent").count})",
+     user_requests_path(current_user) %></p>
     <p><%= link_to "All Dogs", users_path %></p>
   <% end %>
   <div id="user-widget">

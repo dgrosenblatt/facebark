@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate, only: [:show, :edit, :update]
+
 
   def index
     @users = User.all
@@ -7,10 +9,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @history = @user.histories.order(created_at: :desc).first
-    @request_count = @user.received_requests.where(status: "sent").count
   end
 
   def edit
+
     @user = User.find(params[:id])
   end
 

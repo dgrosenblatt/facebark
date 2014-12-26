@@ -6,15 +6,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="group">
   <%= render 'layouts/facebook'%>
   <%= render 'layouts/header' %>
   <%= render 'layouts/leftpanel' %>
 
   <div class="body-container">
     <%= yield %>
-    <%= render 'layouts/footer' %>
   </div>
 
+  <%= render 'layouts/footer' %>
 </body>
 </html>

@@ -94,8 +94,6 @@ footer {
   }
 }
 
-.profile-picture {
-}
 
 .picture,
 .information,
@@ -105,9 +103,27 @@ footer {
 .connection {
   float: left;
   border: 1px solid #3b5998;
-  width: 45%;
+  width: 47%;
   margin-left: 15px;
   margin-top: 15px;
+}
+
+.picture {
+  height: 360px;
+}
+
+.information {
+  min-height: 360px;
+}
+
+.friend-item {
+  float: left;
+  margin-left: 10px;
+  width: 110px;
+  .name-label {
+    margin-top: 10px;
+    text-align: center;
+  }
 }
 
 .history-list, .edit-box {

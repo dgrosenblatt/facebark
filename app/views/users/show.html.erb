@@ -9,28 +9,6 @@
   <%= image_tag @user.image_url, size: "240x320", class: "profile-picture" %>
 </div>
 
-<div class="connection">
-  <div class="banner">
-    <p>
-      Connection
-    </p>
-  </div>
-  <% if current_user == @user %>
-  <p>
-    This is you.
-  </p>
-  <% elsif @user.all_friends.include?(current_user) %>
-    <p>
-      You are friends with <%= @user.dog_name %>.
-    </p>
-  <% else %>
-    <%= form_for [current_user, Request.new] do |f| %>
-    <%= f.hidden_field :recipient_id, value: @user.id %>
-    <%= f.submit "Send Friend Request" %>
-    <% end %>
-  <% end %>
-</div>
-
 <div class="information">
   <div class="banner">
     <p>
@@ -49,6 +27,28 @@
     <p>
       Human: <%= @user.name %>
     </p>
+</div>
+
+<div class="connection">
+  <div class="banner">
+    <p>
+      Connection
+    </p>
+  </div>
+  <% if current_user == @user %>
+  <p>
+    This is you.
+  </p>
+  <% elsif @user.all_friends.include?(current_user) %>
+  <p>
+    You are friends with <%= @user.dog_name %>.
+  </p>
+  <% else %>
+  <%= form_for [current_user, Request.new] do |f| %>
+  <%= f.hidden_field :recipient_id, value: @user.id %>
+  <%= f.submit "Send Friend Request" %>
+  <% end %>
+  <% end %>
 </div>
 
 <div class="wall">
@@ -72,12 +72,14 @@
   </div>
   <% if @user.all_friends.any? %>
     <% @user.all_friends.each do |friend| %>
-      <p>
-        <%= image_tag friend.image_url, size: "100x100" %>
-      </p>
-      <p>
-        <%= friend.dog_name %>
-      </p>
+      <div class="friend-item">
+        <p>
+          <%= image_tag friend.image_url, size: "100x100" %>
+        </p>
+        <p class="name-label">
+          <%= link_to friend.dog_name, friend %>
+        </p>
+      </div>
     <% end %>
   <% else %>
     <p>

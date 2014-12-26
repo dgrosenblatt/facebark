@@ -5,22 +5,27 @@
 
   <%= form_for @user do |f| %>
 
-    <%= f.label :dog_name, "Name" %>
+    <%= f.label :dog_name, "Dog's Name" %>
+    <br>
     <%= f.text_field :dog_name %>
-    <br>
+    <br><br>
     <%= f.label :image_url %>
-    <p>Upload your photo to imgur.com and use the Large Thumbnail link
+    <p>Upload your photo to imgur.com and use the Large Thumbnail link. Bark Zuckerberg
+      says: "We do better with portait than landscape right now!"
     </p>
-    <%= f.text_field :image_url %>
-    <br>
+    <%= f.text_field :image_url, size: 50 %>
+    <br><br>
     <%= f.label :college_id, "College" %>
+    <br>
     <%= f.collection_select(:college_id, College.all, :id, :name) %>
-    <br>
+    <br><br>
     <%= f.label :breed %>
-    <%= f.text_field :breed %>
     <br>
+    <%= f.text_field :breed %>
+    <br><br>
     <%= f.label :interests %>
-    <%= f.text_field :interests %>
+    <br>
+    <%= f.text_area :interests, size: "50x20" %>
     <br>
     <%= f.submit "Save Profile" %>
 

@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'redcarpet'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'dotenv-rails', :groups => [:development, :test]

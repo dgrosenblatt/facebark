@@ -96,25 +96,37 @@ footer {
 
 
 .picture,
-.information,
 .wall,
-.friends,
-.sniff,
 .connection {
   float: left;
   border: 1px solid #3b5998;
-  width: 47%;
-  margin-left: 15px;
+  width: 48%;
+  margin-left: 10px;
   margin-top: 15px;
+  margin-bottom: 2px;
+}
+
+.friends, .information {
+  float:right;
+  border: 1px solid #3b5998;
+  width: 48%;
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-bottom: 2px;
 }
 
 .picture {
-  height: 360px;
+  height: 420px;
 }
 
 .information {
-  min-height: 360px;
+  min-height: 420px;
 }
+
+.wall p.wall-items {
+  padding: 5px;
+}
+
 
 .friend-item {
   float: left;
@@ -122,6 +134,9 @@ footer {
   width: 110px;
   .name-label {
     margin-top: 10px;
+    text-align: center;
+  }
+  p {
     text-align: center;
   }
 }

@@ -6,7 +6,7 @@
       Picture
     </p>
   </div>
-  <%= image_tag @user.image_url, size: "240x320", class: "profile-picture" %>
+  <%= image_tag @user.image_url, size: "300x400", class: "profile-picture" %>
 </div>
 
 <div class="information">
@@ -51,19 +51,6 @@
   <% end %>
 </div>
 
-<div class="wall">
-  <div class="banner">
-     <p>
-       <%= @user.dog_name %>'s Wall
-     </p>
-   </div>
-   <%= @history.try(:body) %>
-   <p>
-     <%= link_to "Write on the wall!", new_user_history_path(@user) %> |
-     <%= link_to "(See Wall History)", user_histories_path(@user) %>
-   </p>
-</div>
-
 <div class="friends">
   <div class="banner">
     <p>
@@ -74,7 +61,7 @@
     <% @user.all_friends.each do |friend| %>
       <div class="friend-item">
         <p>
-          <%= image_tag friend.image_url, size: "100x100" %>
+          <%= image_tag friend.image_url, size: "75x100" %>
         </p>
         <p class="name-label">
           <%= link_to friend.dog_name, friend %>
@@ -86,4 +73,17 @@
       No friends yet!
     </p>
   <% end %>
+</div>
+
+<div class="wall">
+  <div class="banner">
+    <p>
+      <%= @user.dog_name %>'s Wall
+    </p>
+  </div>
+  <%= render_markdown(@history.try(:body)) %>
+  <p>
+    <%= link_to "Write on the wall!", new_user_history_path(@user) %> |
+    <%= link_to "(See Wall History)", user_histories_path(@user) %>
+  </p>
 </div>

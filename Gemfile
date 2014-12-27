@@ -14,3 +14,6 @@ gem 'redcarpet'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'rails_12factor', group: :production
+
+ruby '2.0.0'

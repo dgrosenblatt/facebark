@@ -25,4 +25,9 @@ class User < ActiveRecord::Base
     self.inverse_friendships.each { |friendship| friends << friendship.user }
     friends
   end
+
+  def outstanding_requests
+    self.sent_requests.map {|req| req.recipient if req.status == "sent"}
+  end
+
 end

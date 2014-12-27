@@ -36,18 +36,22 @@
     </p>
   </div>
   <% if current_user == @user %>
-  <p>
-    This is you.
-  </p>
+    <p>
+      This is you.
+    </p>
   <% elsif @user.all_friends.include?(current_user) %>
-  <p>
-    You are friends with <%= @user.dog_name %>.
-  </p>
+    <p>
+      You are friends with <%= @user.dog_name %>.
+    </p>
+  <% elsif current_user.outstanding_requests.include? @user %>
+    <p>
+      Request sent! Awaiting response
+    </p>
   <% else %>
-  <%= form_for [current_user, Request.new] do |f| %>
-  <%= f.hidden_field :recipient_id, value: @user.id %>
-  <%= f.submit "Send Friend Request" %>
-  <% end %>
+    <%= form_for [current_user, Request.new] do |f| %>
+      <%= f.hidden_field :recipient_id, value: @user.id %>
+      <%= f.submit "Send Friend Request" %>
+    <% end %>
   <% end %>
 </div>
 
